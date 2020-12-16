@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Functions and Variables Example</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h4>Events</h4>
+        <!-- Sync example -->
+        <p>Successfully bumped: {{ bumpedSync }}</p>
+
+        <!-- Counter example (received as event) -->
+        <p>Bump Counter: {{ BumpCounter }}</p>
+ 
+        <!-- Check if currently pairing -->
+        <p>Devices currently pairing: {{ pairingSync }}</p>
+
+        <hr>
+        <h4>Variables</h4>
+        <!-- Read variables example -->
+        <p>Number of Bump attempts (0): {{ Bumpattempts_0 }} </p>
+        <button v-on:click="getBumpattempts(0)">Get Bump attempts (Device 0)</button>
+        <br>
+        <p>Number of Bump attempts (1): {{ Bumpattempts_1 }} </p>
+        <button v-on:click="getBumpattempts(1)">Get Bump attempts (Device 1)</button>
+        
+        <hr>
+        <h4>Functions</h4>
+        <!-- Call functions example  -->
+        <p>Pairing</p>
+        <button v-on:click="pairing()">Pair devices</button>
+
+        
+    </div>
+    <hr>
+    <div id="app2">
+        <p>Last Message: {{ lastMessage }}</p>
+        <p>All Messages</p>
+        <ul>
+            <li v-for="message in messages">{{ message }}</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="bump_cloud.js"></script>
+</body>
+
+</html>
